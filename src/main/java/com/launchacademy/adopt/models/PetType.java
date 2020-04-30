@@ -2,6 +2,7 @@ package com.launchacademy.adopt.models;
 
 
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,6 +35,6 @@ public class PetType {
     @Column
     private String description;
 
-//    @OneToMany(mappedBy = "petType")
-//    private List<PetType> petType;
+    @OneToMany(mappedBy = "petType", cascade= CascadeType.ALL)
+    private List <PetType> petType;
 }

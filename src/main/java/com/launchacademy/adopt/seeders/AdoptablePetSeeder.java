@@ -22,9 +22,14 @@ public class AdoptablePetSeeder {
     }
 
     public void seed() {
-        List<PetType> petTypeList = petTypeRepo.findAll();
-        PetType guinea = petTypeList.get(0);
-        PetType reptile = petTypeList.get(1);
+        Iterable<PetType> allPets = petTypeRepo.findAll();
+        List<PetType> allTypes = new ArrayList<>() {
+        };
+        for (PetType petType: allTypes ) {
+            allTypes.add(petType);
+        }
+        PetType guinea = allTypes.get(0);
+        PetType reptile = allTypes.get(1);
         List<AdoptablePet> adoptablePets = new ArrayList();
 
         if (adoptablePetRepo.count() == 0) {
