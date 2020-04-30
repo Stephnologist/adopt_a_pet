@@ -54,7 +54,7 @@ public class AdoptablePetSeeder {
             adoptablePet3.setAge(7);
             adoptablePet3.setVaccinationStatus(false);
             adoptablePet3.setAdoptionStory("Is an ornery guinea pig that hates belly rubs.");
-            adoptablePet3.setAdoptionStatus("'Pending'");
+            adoptablePet3.setAdoptionStatus("Pending");
             adoptablePet3.setPetType(guinea);
             adoptablePetRepo.save(adoptablePet3);
 

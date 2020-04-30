@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import TypeOfPet from "./TypeOfPet"
-import Orbit from "./Orbit"
+//import Orbit from "./Orbit"
 
 const TypeOfPetsContainer = props => {
 	const [petType, setPetType] = useState([])
@@ -20,6 +20,7 @@ const TypeOfPetsContainer = props => {
 				return result.json()
 			})
 			.then(json => {
+			debugger
 				setPetType(json)
 			})
 			.catch(error => {

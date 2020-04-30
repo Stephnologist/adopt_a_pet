@@ -32,8 +32,11 @@ public class AdoptablePet {
     @JoinColumn(name = "pet_type_id", nullable = false)
     private PetType petType;
 
+//    @Column(name = "pet_type_id")
+//    private Integer petType;
+
     @NotBlank
-    @Column
+    @Column(name = "name")
     private String name;
 
     @URL
@@ -41,7 +44,7 @@ public class AdoptablePet {
     @Column(name = "img_url")
     private String imgUrl;
 
-    @Column
+    @Column(name="age")
     private Integer age;
 
     @Column(name = "vaccination_status")

@@ -34,6 +34,6 @@ public class PetType {
     @Column
     private String description;
 
-//    @OneToMany(mappedBy = "petType")
-//    private List<PetType> petType;
+    @OneToMany(mappedBy = "petType")
+    private List<PetType> petType;
 }

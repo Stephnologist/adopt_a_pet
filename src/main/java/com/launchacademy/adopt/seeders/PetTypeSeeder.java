@@ -21,7 +21,7 @@ public class PetTypeSeeder {
 
         if (petTypeRepo.count() == 0) {
             PetType guinea = new PetType();
-            guinea.setType("guinea pig");
+            guinea.setType("guinea");
             guinea.setDescription("Domesticated rodent");
             petTypeRepo.save(guinea);
 
