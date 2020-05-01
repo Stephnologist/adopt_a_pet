@@ -6,14 +6,12 @@ import com.launchacademy.adopt.repositories.PetTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping
 public class PetTypeApiController {
 
-  private PetTypeRepository petTypeRepo;
+  private final PetTypeRepository petTypeRepo;
 
   @Autowired
   public PetTypeApiController(PetTypeRepository petTypeRepo) {
@@ -21,7 +19,9 @@ public class PetTypeApiController {
   }
 
   @GetMapping("/api/v1/types")
-  public Iterable<PetType> getPetTypeList() { return petTypeRepo.findAll(); }
+  public Iterable<PetType> getPetTypes() {
+    return petTypeRepo.findAll();
+  }
 
   @GetMapping("/api/v1/types/{type}")
   public Iterable<PetType> getListByType(@PathVariable String type) {

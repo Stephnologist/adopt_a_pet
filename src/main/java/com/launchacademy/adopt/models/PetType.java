@@ -23,16 +23,15 @@ import lombok.Setter;
 @NoArgsConstructor
 public class PetType {
     @Id
-    @SequenceGenerator(name = "pet_types_generator", sequenceName = "pet_types_id_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pet_types_generator")
+    @SequenceGenerator(name = "pet_type_generator", sequenceName = "pet_types_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "pet_type_generator")
     @Column(name = "id", nullable = false, unique = true)
     private Integer id;
 
-    @Column
-    @NotBlank
+    @Column(name = "type", nullable = false)
     private String type;
 
-    @Column
+    @Column(name = "description", nullable = false)
     private String description;
 
     @OneToMany(mappedBy = "petType", cascade= CascadeType.ALL)

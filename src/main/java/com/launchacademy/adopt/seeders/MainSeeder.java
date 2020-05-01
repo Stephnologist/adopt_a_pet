@@ -9,11 +9,6 @@ public class MainSeeder implements CommandLineRunner {
   @Autowired PetTypeSeeder petTypeSeeder;
   @Autowired AdoptablePetSeeder adoptablePetSeeder;
 
-//    @Autowired
-//    public MainSeeder(PetTypeSeeder petTypeSeeder, AdoptablePetSeeder adoptablePetSeeder) {
-//        this.petTypeSeeder = petTypeSeeder;
-//        this.adoptablePetSeeder = adoptablePetSeeder;
-//    }
 
   @Override
   public void run(String... args) throws Exception {

@@ -1,6 +1,8 @@
 package com.launchacademy.adopt.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -24,25 +26,23 @@ import org.hibernate.validator.constraints.URL;
 @NoArgsConstructor
 public class AdoptablePet {
     @Id
-    @SequenceGenerator(name = "adoptable_pets_generator", sequenceName = "adoptable_pets_id_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "adoptable_pets_generator")
+    @SequenceGenerator(name = "adoptable_pet_generator", sequenceName = "adoptable_pets_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "adoptable_pet_generator")
     @Column(name = "id", nullable = false, unique = true)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "pet_type_id", nullable = false)
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JsonIgnore
+    @JoinColumn(name = "pet_type_id", referencedColumnName = "id")
     private PetType petType;
 
-//    @Column(name = "pet_type_id")
-//    private Integer petType;
-
     @NotBlank
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
     @URL
     @NotBlank
-    @Column(name = "img_url")
+    @Column(name = "img_url", nullable = false)
     private String imgUrl;
 
     @Column(name="age")
