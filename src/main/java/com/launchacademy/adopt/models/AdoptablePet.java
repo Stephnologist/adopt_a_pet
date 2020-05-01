@@ -32,8 +32,7 @@ public class AdoptablePet {
     private Integer id;
 
     @ManyToOne(cascade = CascadeType.MERGE)
-    @JsonIgnore
-    @JoinColumn(name = "pet_type_id", referencedColumnName = "id")
+    @JoinColumn(name = "pet_type_id")
     private PetType petType;
 
     @NotBlank

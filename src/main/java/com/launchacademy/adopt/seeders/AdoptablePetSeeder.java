@@ -25,10 +25,6 @@ public class AdoptablePetSeeder {
     this.petTypeRepo = petTypeRepo;
   }
 
-  public PetType findFirstByType(String type) {
-    return petTypeRepo.findFirstByType(type);
-  }
-
   public void seed() {
     List<AdoptablePet> seeds = new ArrayList<>();
 
@@ -39,7 +35,7 @@ public class AdoptablePetSeeder {
     adoptablePet1.setVaccinationStatus(true);
     adoptablePet1.setAdoptionStory("Is a sweet guineapig that loves belly rubs.");
     adoptablePet1.setAdoptionStatus("Pending");
-    adoptablePet1.setPetType(findFirstByType("guinea"));
+    adoptablePet1.setPetType(petTypeRepo.findByType("guinea"));
     seeds.add(adoptablePet1);
 
     AdoptablePet adoptablePet2 = new AdoptablePet();
@@ -49,7 +45,7 @@ public class AdoptablePetSeeder {
     adoptablePet2.setVaccinationStatus(false);
     adoptablePet2.setAdoptionStory("Is a chameleon that gets excited at the sight of lettuce.");
     adoptablePet2.setAdoptionStatus("Pending");
-    adoptablePet2.setPetType(findFirstByType("reptile"));
+    adoptablePet2.setPetType(petTypeRepo.findByType("reptile"));
     seeds.add(adoptablePet2);
 
     for(AdoptablePet seed : seeds) {

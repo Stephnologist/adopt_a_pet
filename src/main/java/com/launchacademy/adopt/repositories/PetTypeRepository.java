@@ -10,5 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface PetTypeRepository extends PagingAndSortingRepository<PetType, Integer> {
   public List<PetType> findAll();
   public List<PetType> findAllByType(String string);
-  public PetType findFirstByType(String string);
+//  public PetType findFirstByType(String string);
+  public PetType findByType (String type);
 }
