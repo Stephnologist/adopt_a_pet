@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class AdoptablePetSeeder {
+
   private AdoptablePetRepository adoptablePetRepo;
   private PetTypeRepository petTypeRepo;
 
@@ -30,7 +31,8 @@ public class AdoptablePetSeeder {
 
     AdoptablePet adoptablePet1 = new AdoptablePet();
     adoptablePet1.setName("Helena");
-    adoptablePet1.setImgUrl("https://www.reptilecentre.com/images/wmfixed/Reptile/frozen-guinea-pig-v1-495-495.jpg?v=2");
+    adoptablePet1.setImgUrl(
+        "https://www.reptilecentre.com/images/wmfixed/Reptile/frozen-guinea-pig-v1-495-495.jpg?v=2");
     adoptablePet1.setAge(3);
     adoptablePet1.setVaccinationStatus(true);
     adoptablePet1.setAdoptionStory("Is a sweet guineapig that loves belly rubs.");
@@ -40,7 +42,8 @@ public class AdoptablePetSeeder {
 
     AdoptablePet adoptablePet2 = new AdoptablePet();
     adoptablePet2.setName("Artemis");
-    adoptablePet2.setImgUrl("https://lafeber.com/vet/wp-content/uploads/Veiled-chameleon-by-Mrs-Logic-cropped-square.jpg");
+    adoptablePet2.setImgUrl(
+        "https://lafeber.com/vet/wp-content/uploads/Veiled-chameleon-by-Mrs-Logic-cropped-square.jpg");
     adoptablePet2.setAge(5);
     adoptablePet2.setVaccinationStatus(false);
     adoptablePet2.setAdoptionStory("Is a chameleon that gets excited at the sight of lettuce.");
@@ -48,9 +51,30 @@ public class AdoptablePetSeeder {
     adoptablePet2.setPetType(petTypeRepo.findByType("reptile"));
     seeds.add(adoptablePet2);
 
-    for(AdoptablePet seed : seeds) {
+    AdoptablePet adoptablePet3 = new AdoptablePet();
+    adoptablePet3.setName("Rocky");
+    adoptablePet3.setImgUrl("https://cdn.mos.cms.futurecdn.net/gJJFamQca86CibEeDmegk-1024-80.jpg");
+    adoptablePet3.setAge(7);
+    adoptablePet3.setVaccinationStatus(false);
+    adoptablePet3.setAdoptionStory("Is an ornery guinea pig that hates belly rubs.");
+    adoptablePet3.setAdoptionStatus("'Pending'");
+    adoptablePet3.setPetType(petTypeRepo.findByType("guinea"));
+    seeds.add(adoptablePet3);
+
+    AdoptablePet adoptablePet4 = new AdoptablePet();
+    adoptablePet4.setName("Harry");
+    adoptablePet4.setImgUrl(
+        "https://img1.grunge.com/img/gallery/the-truth-about-why-there-arent-snakes-in-ireland/intro-1547479326.jpg");
+    adoptablePet4.setAge(2);
+    adoptablePet4.setVaccinationStatus(true);
+    adoptablePet4.setAdoptionStory("Is a snake with a huge appetite for bunnies.");
+    adoptablePet4.setAdoptionStatus("Pending");
+    adoptablePet4.setPetType(petTypeRepo.findByType("reptile"));
+    seeds.add(adoptablePet4);
+
+    for (AdoptablePet seed : seeds) {
       List pets = adoptablePetRepo.findAllByName(seed.getName());
-      if (pets.size()==0) {
+      if (pets.size() == 0) {
         AdoptablePet pet = new AdoptablePet();
         pet.setName(seed.getName());
         pet.setImgUrl(seed.getImgUrl());
@@ -63,26 +87,6 @@ public class AdoptablePetSeeder {
       }
     }
 
-//      AdoptablePet adoptablePet3 = new AdoptablePet();
-//      adoptablePet3.setName("Rocky");
-//      adoptablePet3.setImgUrl("https://cdn.mos.cms.futurecdn.net/gJJFamQca86CibEeDmegk-1024-80.jpg");
-//      adoptablePet3.setAge(7);
-//      adoptablePet3.setVaccinationStatus(false);
-//      adoptablePet3.setAdoptionStory("Is an ornery guinea pig that hates belly rubs.");
-//      adoptablePet3.setAdoptionStatus("'Pending'");
-//      adoptablePet3.setPetType(guinea);
-//      adoptablePetRepo.save(adoptablePet3);
-//
-//      AdoptablePet adoptablePet4 = new AdoptablePet();
-//      adoptablePet4.setName("Harry");
-//      adoptablePet4.setImgUrl("https://img1.grunge.com/img/gallery/the-truth-about-why-there-arent-snakes-in-ireland/intro-1547479326.jpg");
-//      adoptablePet4.setAge(2);
-//      adoptablePet4.setVaccinationStatus(true);
-//      adoptablePet4.setAdoptionStory("Is a snake with a huge appetite for bunnies.");
-//      adoptablePet4.setAdoptionStatus("Pending");
-//      adoptablePet4.setPetType(reptile);
-//      adoptablePetRepo.save(adoptablePet4);
-//
 //      AdoptablePet adoptablePet5 = new AdoptablePet();
 //      adoptablePet5.setName("Sticky");
 //      adoptablePet5.setImgUrl("https://live.staticflickr.com/8576/15166690374_6dcf167afa_b.jpg");
