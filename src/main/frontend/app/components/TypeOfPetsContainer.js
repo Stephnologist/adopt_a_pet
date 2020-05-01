@@ -20,7 +20,6 @@ const TypeOfPetsContainer = props => {
 				return result.json()
 			})
 			.then(json => {
-			debugger
 				setPetType(json)
 			})
 			.catch(error => {
@@ -34,7 +33,7 @@ const TypeOfPetsContainer = props => {
 
 	return (
 		<>
-			<Orbit />
+			{/* <Orbit /> */}
 			<div className="featured-image-block-grid">
 				<div className="featured-image-block-grid-header columns text-center">
 					<h2 id="hero-section-text">Pet Types</h2>
