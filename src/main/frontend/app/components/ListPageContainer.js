@@ -3,10 +3,10 @@ import ListPage from "./ListPage"
 
 const ListPageContainer = props => {
   const [lists, setLists] = useState([])
-  let petType = props.petType
+  let petType = props.match.params.type
 
   useEffect(() => {
-    fetch(`/api/v1/${petType}`)
+    fetch(`/api/v1/pets/${petType}`)
       .then(response => {
         if (response.ok) {
           return response
