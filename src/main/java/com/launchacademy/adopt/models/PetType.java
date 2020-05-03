@@ -31,7 +31,7 @@ public class PetType {
     @Column(name = "type", nullable = false)
     private String type;
 
-    @Column(name = "description", nullable = false)
+    @Column(name = "description")
     private String description;
 
 //    @OneToMany(mappedBy = "petType", cascade= CascadeType.ALL)

@@ -54,10 +54,10 @@ public class AdoptablePet {
     private Boolean vaccinationStatus;
 
     @NotBlank
-    @Column(name = "adoption_story")
+    @Column(name = "adoption_story", nullable = false)
     private String adoptionStory;
 
     @NotBlank
-    @Column(name = "adoption_status")
+    @Column(name = "adoption_status", nullable = false)
     private String adoptionStatus;
 }

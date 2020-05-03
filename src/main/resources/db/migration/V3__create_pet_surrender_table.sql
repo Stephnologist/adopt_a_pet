@@ -6,7 +6,7 @@ CREATE TABLE pet_surrender_applications (
     pet_name VARCHAR(255) NOT NULL,
     pet_age INTEGER,
     pet_type_id INTEGER REFERENCES pet_types(id) NOT NULL,
-    pet_img_url VARCHAR(255),
+    pet_img_url VARCHAR(255) NOT NULL,
     vaccination_status BOOLEAN,
     application_status VARCHAR(255) NOT NULL
 );
