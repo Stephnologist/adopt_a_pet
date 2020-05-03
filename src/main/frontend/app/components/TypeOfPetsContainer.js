@@ -28,7 +28,13 @@ const TypeOfPetsContainer = props => {
 	}, [])
 
 	const listOfPets = petType.map(element => {
-		return <TypeOfPet data={element} />
+    let typeName
+    if (element.type === "guinea") {
+      typeName = "guinea"
+    } else if (element.type === "reptile") {
+      typeName = "reptile"
+    }
+		return <TypeOfPet data={element} key={element.id} type={typeName}/>
 	})
 
 	return (

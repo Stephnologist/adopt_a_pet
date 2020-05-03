@@ -35,6 +35,9 @@ public class AdoptablePet {
     @JoinColumn(name = "pet_type_id")
     private PetType petType;
 
+    @Column(name = "pet_type_id",nullable = false, insertable = false, updatable = false)
+    private Integer typeId;
+
     @NotBlank
     @Column(name = "name", nullable = false)
     private String name;

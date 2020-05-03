@@ -2,13 +2,13 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 const TypeOfPet = props => {
-  const { type, description, img_url } = props.data
-  const path = '/'+ "pets" + "/" + type.split(' ').join(''). trim() 
+  const { type, description } = props.data
+  const path = "/pets/" + type
 
   return (
     <div className="featured-image-block medium-6 column">
       <Link to={path}>
-        <img className="resizing-img" src={img_url} />
+        <img className="resizing-img" src={`../images/${type}.jpg`}/>
         <p className="text-center featured-image-block-title">{type}</p>
       </Link>
       <p>{description}</p>

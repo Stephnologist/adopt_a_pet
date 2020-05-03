@@ -30,7 +30,7 @@ public class PetTypeSeeder {
 
     PetType petType2 = new PetType();
     petType2.setType("reptile");
-    petType2.setDescription("Domesticated questionable enemy'");
+    petType2.setDescription("Domesticated questionable enemy");
     seeds.add(petType2);
 
     for(PetType seed : seeds) {

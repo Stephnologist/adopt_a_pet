@@ -33,10 +33,8 @@ public class PetTypeApiController {
 
 
   //shows the pet type entered in the variable section
-  @GetMapping("/api/v1/pet_type/{pet_type}")
+  @GetMapping("/api/v1/{pet_type}")
   public Iterable<PetType> getListByType(@PathVariable String pet_type) {
     return petTypeRepo.findAllByType(pet_type);
   }
-
-
 }

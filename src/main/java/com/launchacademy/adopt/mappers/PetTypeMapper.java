@@ -1,11 +1,11 @@
 //package com.launchacademy.adopt.mappers;
 
 
-import com.launchacademy.adopt.models.PetType;
-import org.mapstruct.InjectionStrategy;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.springframework.stereotype.Component;
+// import com.launchacademy.adopt.models.PetType;
+// import org.mapstruct.InjectionStrategy;
+// import org.mapstruct.Mapper;
+// import org.mapstruct.Mapping;
+// import org.springframework.stereotype.Component;
 
 //@Component
 //@Mapper(injectionStrategy = InjectionStrategy.CONSTRUCTOR, componentModel = "spring")
