@@ -2,14 +2,14 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 const ListPage = props => {
-	const { img_url, name, vaccination_status, age, id } = props.data
+	const { imgUrl, name, vaccinationStatus, age, id } = props.data
 
 	return (
 		<div className="row add-pets-section">
 			<div className="small-12 medium-6 columns about-pets">
 				<div className="about-pets-avatar">
 					<Link to={`/pets/${id}`}>
-						<img className="avatar-image test" src={img_url} alt={name} />
+						<img className="avatar-image test" src={imgUrl} alt={name} />
 					</Link>
 				</div>
 				<div className="about-pets-author">
@@ -19,7 +19,7 @@ const ListPage = props => {
 					<p className="author-location">Age: {age}</p>
 					<p className="author-mutual">
 						<strong>Up to Date on Shots?</strong>{" "}
-						{vaccination_status == true ? "Yes" : "No"}
+						{vaccinationStatus == true ? "Yes" : "No"}
 					</p>
 				</div>
 			</div>
