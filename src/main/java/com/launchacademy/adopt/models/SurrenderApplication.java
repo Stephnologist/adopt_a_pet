@@ -1,6 +1,9 @@
-
+package com.launchacademy.adopt.models;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
@@ -9,9 +12,12 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
-@Data
+
 @Entity
 @Table(name = "pet_surrender_applications")
+@Setter
+@Getter
+@NoArgsConstructor
 public class SurrenderApplication {
     @Id
     @SequenceGenerator(name = "pet_surrender_application_generator", sequenceName = "pet_surrender_applications_id_seq", allocationSize = 1)
@@ -39,9 +45,9 @@ public class SurrenderApplication {
     @Column(name = "pet_age")
     private Integer petAge;
 
-//    @ManyToOne
-//    @JoinColumn(name = "pet_type_id", nullable = false)
-//    private PetType petType;
+    @ManyToOne
+    @JoinColumn(name = "pet_type_id", nullable = false)
+    private PetType petType;
 
     @URL
     @NotBlank

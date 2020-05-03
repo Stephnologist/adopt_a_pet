@@ -51,7 +51,7 @@ const AdoptMeForm = props => {
   const submitForm = event => {
     event.preventDefault()
     if (validForSubmission()) {
-      fetch("/api/v1/adoptionApplication", {
+      fetch("api/v1/pet_surrender_applications", {  //"/api/v1/adoptionApplication"
         method: "POST",
         body: JSON.stringify(newApplication),
         headers: { "Content-Type": "application/json" }
