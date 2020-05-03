@@ -17,8 +17,8 @@ public interface AdoptablePetRepository extends PagingAndSortingRepository<Adopt
   @Query("SELECT a FROM AdoptablePet a JOIN PetType p ON a.typeId = p.id WHERE p.type = :type")
   public List<AdoptablePet> findAllByType(@Param("type") String type);
 
-//  @Query("SELECT a FROM AdoptablePet a JOIN PetType p ON a.typeId = p.id WHERE p.type = :id")
-//  public AdoptablePet findPetByTypeAndId(@Param("type") String type, @Param("id") Integer id);
+  @Query("SELECT a FROM AdoptablePet a JOIN PetType p ON a.typeId = p.id WHERE p.type = :type AND a.id = :id")
+  public AdoptablePet findPetByTypeAndId(@Param("type") String type, @Param("id") Integer id);
 
 
 //  public List<AdoptablePet> findAllByPetType(PetType petType);

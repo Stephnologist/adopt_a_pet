@@ -5,6 +5,7 @@ import com.launchacademy.adopt.models.PetType;
 import com.launchacademy.adopt.repositories.AdoptablePetRepository;
 import com.launchacademy.adopt.repositories.PetTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,15 +32,22 @@ public class AdoptablePetApiController {
     return adoptablePetRepo.findAdoptablePetById(id);
   }
 
+  @GetMapping("api/v1/pets/{type}")//custom query one param
+  public Iterable<AdoptablePet> listAdoptablePetsByType(@PathVariable String type) {
+    return adoptablePetRepo.findAllByType(type);
+  }
+
+  @GetMapping("api/v1/{type}/{id}")
+  public AdoptablePet getAdoptablePetByTypeAndId(@PathVariable String type, @PathVariable Integer id) {
+    return adoptablePetRepo.findPetByTypeAndId(type, id);
+  }
+
 //  @GetMapping("/api/v1/pets/{id}")//shows list of pets with same pet_type_id
 //  public Iterable<AdoptablePet> getAdoptablePetByPetTypeId(@PathVariable Integer id) {
 //    return adoptablePetRepo.findAllByPetTypeId(id);
 //  }
 
-  @GetMapping("api/v1/pets/{type}")//custom query one param
-  public Iterable<AdoptablePet> listAdoptablePetsByType(@PathVariable String type) {
-    return adoptablePetRepo.findAllByType(type);
-  }
+
 
 //  @GetMapping("api/v1/{pet_type}") //doesn't work
 //  public Iterable<AdoptablePet> getAdoptablePetsByType(@PathVariable String petType) {
