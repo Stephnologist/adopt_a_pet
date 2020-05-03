@@ -13,7 +13,7 @@ const App = props => {
        <Route exact path="/" component={TypeOfPetsContainer} />
        <Route exact path="/pets" component={TypeOfPetsContainer} />
        <Route exact path="/pets/:type" component={ListPageContainer} />
-       <Route exact path="/pets/:type/:petId" component={ListPageContainer}/>
+       <Route exact path="/pets/:type/:petId" component={ShowPage}/>
      </Switch>
     </BrowserRouter>
   )
