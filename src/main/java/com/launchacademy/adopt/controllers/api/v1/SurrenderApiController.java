@@ -44,7 +44,8 @@ public class SurrenderApiController {
     return surrenderAppRepo.findAll();
   }
   //("api/v1/pet_surrender_applications")
-  @PostMapping
+
+  @PostMapping("api/v1/pet_surrender_applications")
   public SurrenderApplication create(
       @RequestBody @ModelAttribute SurrenderApplication surrenderApp, BindingResult bindingResult, Model model) {
     if(bindingResult.hasErrors()) {
