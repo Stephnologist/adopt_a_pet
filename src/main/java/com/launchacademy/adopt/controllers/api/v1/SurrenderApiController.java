@@ -22,7 +22,7 @@ public class SurrenderApiController {
   private SurrenderApplicationRepository surrenderAppRepo;
 
   @Autowired
-  public void SurrenderApplicationApiController(SurrenderApplicationRepository surrenderAppRepo) {
+  public SurrenderApiController (SurrenderApplicationRepository surrenderAppRepo) {
     this.surrenderAppRepo = surrenderAppRepo;
   }
 
@@ -43,7 +43,6 @@ public class SurrenderApiController {
   public Iterable<SurrenderApplication> getSurrenderList() {
     return surrenderAppRepo.findAll();
   }
-  //("api/v1/pet_surrender_applications")
 
   @PostMapping("api/v1/pet_surrender_applications")
   public SurrenderApplication create(

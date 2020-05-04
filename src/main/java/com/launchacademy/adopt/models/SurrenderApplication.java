@@ -1,5 +1,6 @@
 package com.launchacademy.adopt.models;
 
+import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,7 +39,7 @@ public class SurrenderApplication {
     @Column
     private String email;
 
-    @NotBlank
+    @NotEmpty
     @Column(name = "pet_name")
     private String petName;
 

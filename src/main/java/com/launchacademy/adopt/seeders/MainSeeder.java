@@ -8,11 +8,13 @@ import org.springframework.stereotype.Component;
 public class MainSeeder implements CommandLineRunner {
   @Autowired PetTypeSeeder petTypeSeeder;
   @Autowired AdoptablePetSeeder adoptablePetSeeder;
+  @Autowired SurrenderApplicationSeeder surrenderAppSeeder;
 
 
   @Override
   public void run(String... args) throws Exception {
     petTypeSeeder.seed();
     adoptablePetSeeder.seed();
+    surrenderAppSeeder.seed();
   }
 }
