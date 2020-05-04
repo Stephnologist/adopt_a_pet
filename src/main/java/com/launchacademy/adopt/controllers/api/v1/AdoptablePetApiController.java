@@ -57,7 +57,7 @@ public class AdoptablePetApiController {
 
   @GetMapping("api/v1/{type}/{id}")
   public AdoptablePet getAdoptablePetByTypeAndId(@PathVariable String type, @PathVariable Integer id) {
-    return adoptablePetRepo.findPetByTypeAndId(type, id).orElseThrow(() -> new PetNotFoundException());
+    return adoptablePetRepo.findPetByTypeAndId(type, id); //.orElseThrow(() -> new PetNotFoundException())
   }
 
 //  @GetMapping("/api/v1/pets/{id}")//shows list of pets with same pet_type_id
