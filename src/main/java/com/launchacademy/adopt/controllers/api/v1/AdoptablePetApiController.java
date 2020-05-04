@@ -4,10 +4,16 @@ import com.launchacademy.adopt.models.AdoptablePet;
 import com.launchacademy.adopt.models.PetType;
 import com.launchacademy.adopt.repositories.AdoptablePetRepository;
 import com.launchacademy.adopt.repositories.PetTypeRepository;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -20,6 +26,18 @@ public class AdoptablePetApiController {
   @Autowired
   public AdoptablePetApiController(AdoptablePetRepository adoptablePetRepo) {
     this.adoptablePetRepo = adoptablePetRepo;
+  }
+
+  private class PetNotFoundException extends RuntimeException {};
+
+  @ControllerAdvice
+  private class PetNotFoundAdvice {
+    @ResponseBody
+    @ExceptionHandler(PetNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    String petNotFoundHandler(PetNotFoundException ex) {
+      return ex.getMessage();
+    }
   }
 
   @GetMapping("/api/v1/pets") //shows all pets, both types
@@ -39,7 +57,7 @@ public class AdoptablePetApiController {
 
   @GetMapping("api/v1/{type}/{id}")
   public AdoptablePet getAdoptablePetByTypeAndId(@PathVariable String type, @PathVariable Integer id) {
-    return adoptablePetRepo.findPetByTypeAndId(type, id);
+    return adoptablePetRepo.findPetByTypeAndId(type, id).orElseThrow(() -> new PetNotFoundException());
   }
 
 //  @GetMapping("/api/v1/pets/{id}")//shows list of pets with same pet_type_id
