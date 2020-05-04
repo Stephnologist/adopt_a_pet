@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import _ from "lodash"
-// import ErrorList from "./ErrorList"
+import ErrorList from "./ErrorList"
 
 const AdoptMeForm = props => {
   const defaultFormValue = {

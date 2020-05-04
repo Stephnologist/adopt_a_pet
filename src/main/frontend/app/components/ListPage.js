@@ -2,8 +2,10 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 const ListPage = props => {
-	const { imgUrl, name, vaccinationStatus, age, id, type} = props.data
 
+  const { imgUrl, name, vaccinationStatus, age, id} = props.data
+  const type = props.data.petType.type
+  
 	return (
 		<div className="row add-pets-section">
 			<div className="small-12 medium-6 columns about-pets">
