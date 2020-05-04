@@ -5,7 +5,7 @@ const ListPage = props => {
 
   const { imgUrl, name, vaccinationStatus, age, id} = props.data
   const type = props.data.petType.type
-  
+
 	return (
 		<div className="row add-pets-section">
 			<div className="small-12 medium-6 columns about-pets">
@@ -23,13 +23,6 @@ const ListPage = props => {
 						<strong>Up to Date on Shots?</strong>{" "}
 						{vaccinationStatus == true ? "Yes" : "No"}
 					</p>
-				</div>
-			</div>
-			<div className="small-12 medium-6 columns add-friend">
-				<div className="add-friend-action">
-					<Link to={`/pets/${id}`}>
-						<button className="button primary small">Adopt Me</button>
-					</Link>
 				</div>
 			</div>
 		</div>

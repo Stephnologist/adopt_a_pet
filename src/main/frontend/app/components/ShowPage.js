@@ -6,11 +6,8 @@ const ShowPage = props => {
 	const petId = props.match.params.id
 	let type = props.match.params.type
 
-	// console.log(petId)
-	// console.log(id)
-
 	useEffect(() => {
-		fetch(`/api/v1/${type}/${petId}`) //fetch(`/api/v1/pets/${petId}`)
+		fetch(`/api/v1/${type}/${petId}`)
 			.then(response => {
 				if (response.ok) {
 					return response

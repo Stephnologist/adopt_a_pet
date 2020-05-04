@@ -5,6 +5,7 @@ import TypeOfPetsContainer from "./TypeOfPetsContainer"
 //import LoginPage from "./LoginPage"
 import ListPageContainer from "./ListPageContainer"
 import ShowPage from "./ShowPage"
+import AdoptMeForm from "./AdoptMeForm"
 
 
 
@@ -16,6 +17,7 @@ const App = props => {
        <Route exact path="/pets" component={TypeOfPetsContainer} />
        <Route exact path="/pets/:type" component={ListPageContainer} />
        <Route exact path="/pets/:type/:id" component={ShowPage}/>
+       <Route exact path="/adoptme" component={AdoptMeForm} />
        <Route exact path="/adoptions/new" component={SurrenderForm} />
      </Switch>
     </BrowserRouter>
