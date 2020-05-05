@@ -4,18 +4,11 @@ import AnimalInfo from "./AnimalInfo"
 const ShowPage = props => {
 
 	const [pet, setPet] = useState({})
-
-	console.log(props.type)
-	console.log(props.match.params.id)
-
 	const petId = props.match.params.id
-	let type = props.type
-	
-	console.log(props.match.params.id)
-	console.log(props.type)
+	let type = props.match.params.type
 
 	useEffect(() => {
-		fetch(`/api/v1/${type}/${id}`) //fetch(`/api/v1/pets/${petId}`)
+		fetch(`/api/v1/${type}/${petId}`) //fetch(`/api/v1/pets/${petId}`)
 			.then(response => {
 				if (response.ok) {
 					return response
@@ -31,7 +24,11 @@ const ShowPage = props => {
 			})
 	}, {})
 
-	return <AnimalInfo key={petId} pet={pet} />
+  if(pet){
+  return <AnimalInfo key={petId} pet={pet} />
+  } else {
+  <p>404</p>
+  }
 }
 
 export default ShowPage
